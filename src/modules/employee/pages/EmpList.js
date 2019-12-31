@@ -3,7 +3,6 @@ import axios from 'axios';
 import * as _ from '../../../shared/constants';
 import Employee from '../components/Employee';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 export class EmpList extends Component {
 
@@ -13,7 +12,30 @@ export class EmpList extends Component {
             employees: []
         }
     }
+    // fetch all data
+    getEmployees = () => {
+       axios.get(_.baseURL).then(
+            res => {
+                let data = [];
+                data = res.data || {};
+                const isArray = Array.isArray(data);
+                isArray && this.setState({
+                    employees: data
+                });
+            }
+        )
+    }
 
+    // delete data by id
+    deleteEmployee = (id) => {
+
+        if (window.confirm('Are you sure to delete this employee ?')) {
+            const url = `${_.baseURL}/${id}`;
+            axios.delete(url).then(
+                () => this.getEmployees()
+            )
+        }
+    }
 
     render() {
         const { employees } = this.state;
@@ -50,42 +72,11 @@ export class EmpList extends Component {
         )
     }
 
-    // fetch all data
-    getEmployees() {
-        axios.get(_.baseURL).then(
-            // res => this.setState({
-            //     employees: res.data
-            // })
-            res => {
-                let data = [];
-                data = res.data || {};
-                const isArray = Array.isArray(data); 
-                isArray && this.setState({
-                    employees:data
-                });
-            }
-        )
-    }
-
-    // delete data by id
-    deleteEmployee(id) {
-        if (window.confirm('Are you sure to delete this employee ?')) {
-            const url = `${_.baseURL}/${id}`;
-            axios.delete(url).then(
-                () => {
-                    this.getEmployees();
-                }
-            )
-        }
-    }
-
     // on init of component
     componentDidMount() {
         this.getEmployees();
     }
+    
 }
 
-EmpList.propTypes = {
-    getEmployees: PropTypes.func
-  };
 export default EmpList

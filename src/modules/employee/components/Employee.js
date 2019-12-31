@@ -1,8 +1,7 @@
 import React from 'react';
-// import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 
 function Employee(props) {
-
 
     // capitalize letter logic
     String.prototype.Capitalize = function () {
@@ -17,18 +16,10 @@ function Employee(props) {
             <td>{gender}</td>
             <td>{city}</td>
             <td>
-                <a href={'/edit/' + id} >Edit</a>&nbsp;|&nbsp;<a href="/emplist" onClick={() => props.deleteHandler(id)}>Delete</a>
+                <Link to={'/edit/' + id} >Edit</Link>&nbsp;|&nbsp;<Link to="/emplist" onClick={() => props.deleteHandler(id)}>Delete</Link>
             </td>
         </tr>
     )
 }
-
-// Employee.prototypes = {
-//     id: PropTypes.number,
-//     uname: PropTypes.string,
-//     gender: PropTypes.string,
-//     city: PropTypes.string,
-//     deleteHandler: PropTypes.func
-// }
 
 export default Employee;

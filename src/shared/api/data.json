@@ -6,20 +6,6 @@
       "city": "kolhapur",
       "terms": true,
       "id": 1
-    },
-    {
-      "uname": "Anmol Chaware",
-      "gender": "male",
-      "city": "nagpur",
-      "terms": true,
-      "id": 2
-    },
-    {
-      "uname": "Suyog Kalake",
-      "gender": "male",
-      "city": "mumbai",
-      "terms": true,
-      "id": 3
     }
   ]
 }

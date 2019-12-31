@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as _ from '../../../shared/constants';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export class EditEmp extends Component {
     title = _.editFormTitle;
@@ -19,6 +19,7 @@ export class EditEmp extends Component {
     }
 
     render() {
+
         return (
             <div className="row">
                 <div className="col-sm-4 container">
@@ -54,7 +55,7 @@ export class EditEmp extends Component {
                         </div>
                         <div className="form-group">
                             <button type="submit" className="btn btn-outline-primary btn-sm">Submit</button>&nbsp;
-                            <a href="/empList" className="btn btn-outline-primary btn-sm btn-link">Back</a>
+                            <Link to="/empList" className="btn btn-outline-primary btn-sm btn-link">Back</Link>
                         </div>
                     </form>
                 </div>
@@ -78,6 +79,10 @@ export class EditEmp extends Component {
             () => {
                 window.alert('Updated Successfully!');
                 this.props.history.push('/empList');
+                // if(res){
+                //     return <Redirect to='/' />
+                // }
+                // res. ? <Redirect to="/" /> : <Redirect ti="/add" /> 
             }
         )
     }

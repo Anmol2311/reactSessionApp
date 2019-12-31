@@ -57,15 +57,3 @@ https://airbnb.io/enzyme/docs/api/
 
 * Enzyme cheetsheet
 https://devhints.io/enzyme
-
-* Tutorial
-https://www.youtube.com/watch?v=REfRxzmWDLs
-
-
-https://github.com/enaqx/awesome-react
-
-https://mariusschulz.com/blog/generating-default-typescript-configuration-files-with-tsc-init
-
-https://github.com/VikasKad
-
-https://www.robinwieruch.de/react-hooks-fetch-data
