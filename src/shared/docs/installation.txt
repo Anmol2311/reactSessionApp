@@ -1,0 +1,71 @@
+* React CLI
+
+1. create react app: 
+npx create-react-app project-name
+
+2. install axios & react-router-dom
+npm install --save axios react-router-dom
+
+3. install json-server
+npm install -g json-server
+json-server -p 5555 data.json
+
+4. start react app
+npm run start
+
+5. install enzyme, enzyme-adapter-react-16 & react-test-renderer
+npm install --save-dev enzyme enzyme-adapter-react-16 react-test-renderer
+
+6. configure enzyme inside setupTests.json
+import Enzyme from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+
+Enzyme.configure({ adapter: new Adapter() })
+
+7. run test
+npm run test
+
+
+* React Snippets: 
+reference: https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets
+
+
+* how to write testcases
+
+1. create .test.js file
+2. import enzyme & shallow from enzyme
+3. write testcases
+
+describe("App Component", () => {
+    it("should have title", () => {
+        const wrapper = shallow(<App />);
+        expect(wrapper.find('title')).toBe('true')
+    })
+})
+
+where,
+describe: specify the group of testcases
+it: specify the testcases
+expect: specify the expected output
+
+* useState: use in functional component to set the useState
+* useEffect: use when you want something on component mount & unmount
+Note: mount -> useEffect(() => {},[]) & unmount -> useEffect(() => {},[var]) & both -> useEffect(() => {})
+
+* Enzyme api reference
+https://airbnb.io/enzyme/docs/api/
+
+* Enzyme cheetsheet
+https://devhints.io/enzyme
+
+* Tutorial
+https://www.youtube.com/watch?v=REfRxzmWDLs
+
+
+https://github.com/enaqx/awesome-react
+
+https://mariusschulz.com/blog/generating-default-typescript-configuration-files-with-tsc-init
+
+https://github.com/VikasKad
+
+https://www.robinwieruch.de/react-hooks-fetch-data
